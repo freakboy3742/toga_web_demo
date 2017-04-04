@@ -1,5 +1,7 @@
 import toga
 
+from django.utils.html import escape
+
 
 class Example(toga.App):
     def startup(self):
@@ -34,7 +36,7 @@ class Example(toga.App):
             'completed': False,
         })
 
-        self.list.add(self.input.value())
+        self.list.add(escape(self.input.value()))
         self.input.clear()
 
     def remove_entry(self, widget):
